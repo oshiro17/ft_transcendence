@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="game.select_mode">Select Pong Game Mode</title>
+</head>
+<body>
+    
+    <!-- Classic 1v1 Mode -->
+    <div id="classic-mode" style="margin-top: 40px;">
+        <div class="card-content">
+            <h2 data-i18n="game.classic_pong">Classic Pong</h2>
+            <p data-i18n="game.test_skills">Test your skills against AI</p>
+        </div>
+        <a href="/pong-game" class="play-button" data-i18n="game.play">PLAY NOW</a>
+    </div>
+    
+    <!-- AI Mode -->
+    <div  id="ai-mode">
+        <div class="card-content">
+            <h2 data-i18n="game.ai_challenge">AI Pong Challenge</h2>
+            <p data-i18n="game.test_skills">Test your skills against AI</p>
+        </div>
+        <a href="/pong-game?ai=true" class="play-button" data-i18n="game.play">PLAY NOW</a>
+    </div>
+    
+    <!-- 4-Player Mode -->
+    <div class="game-card" id="multiplayer-mode">
+        <div class="card-content">
+            <h2 data-i18n="game.math_game1">Brick Breaker</h2>
+            <p data-i18n="game.chaotic_fun">Chaotic multiplayer fun</p>
+        </div>
+        <a href="/four-player-pong" class="play-button" data-i18n="game.play">PLAY NOW</a>
+    </div>
+
+    <!-- Tournament Mode Card -->
+    <div class="game-card" id="tournament-mode">
+        <div class="card-content">
+            <h2 data-i18n="game.tournament">Tournament Mode</h2>
+            <p data-i18n="game.tournament_description">Compete for the championship!</p>
+        </div>
+        <a href="/pong-tournament" class="play-button" data-i18n="game.play">PLAY NOW</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body {
+  background: #000000;
+  color: #FFFFFF;
+}
+.login-container {
+    color: #FFFFFF;
+	background-color: #222222;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0,255,255,0.1);
+	width: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+h2 {
+	text-align: center;
+}
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 4px;
+	border: 1px solid #003366;
+	color: #FFFFFF;
+    background: #333333;
+}
+button {
+	width: 100%;
+	padding: 10px;
+	background-color: #007BFF;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 4px;
+}
+button:hover {
+	background-color: #0056b3;
+}
+.error {
+	color: #FFD700;
+	text-align: center;
+}
+.success {
+	color: #00FFFF;
+	text-align: center;
+}
+
+.oauth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.oauth-button img {
+    height: 24px;
+    width: 24px;
+}
+
+.oauth-button:hover {
+    background-color: #333333;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+    color: #003366;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #003366;
+}
+
+.separator span {
+    padding: 0 10px;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #FFFFFF;
+    display: block;
+}
+
+.signup-link a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+    color: #00FFFF;
+}

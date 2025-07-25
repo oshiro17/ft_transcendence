@@ -1,0 +1,225 @@
+interface Ball {
+    x: number;
+    y: number;
+    speedX: number;
+    speedY: number;
+    radius: number;
+    maxSpeed: number;
+}
+
+interface Paddles {
+    width: number;
+    height: number;
+    player1Y: number;
+    player2Y: number;
+    speed: number;
+    animations: any;
+}
+
+interface GameState {
+    ball: Ball;
+    paddles: Paddles;
+    running: boolean;
+    [key: string]: any; 
+}
+
+export type AIDifficulty = 'easy' | 'medium' | 'hard';
+
+export class AIOpponent {
+    private lastUpdateTime: number = 0;
+    private updateInterval: number = 1000; 
+    private gameState: GameState | null = null;
+    private predictedBallPath: { x: number, y: number }[] = [];
+    private difficulty: AIDifficulty = 'medium';
+    private canvasWidth: number;
+    private canvasHeight: number;
+    private targetY: number = 0;
+    private lastTargetY: number = 0;
+    private transitionProgress: number = 1.0;
+    private transitionDuration: number = 0.3;
+    private idleThreshold: number = 10;
+
+    constructor(canvasWidth: number, canvasHeight: number) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.updateInterval = 1000;
+        this.setDifficulty('medium');
+    }
+    
+    public getPredictedPath(): { x: number, y: number }[] {
+        return this.predictedBallPath;
+    }
+    
+    public setDifficulty(difficulty: AIDifficulty): void {
+        this.difficulty = difficulty;
+        // 難易度ごとのパラメータプリセット
+        const presets: Record<AIDifficulty, { interval: number; ease: number; threshold: number }> = {
+            easy:   { interval: 350,  ease: 0.35, threshold: 12 },
+            medium: { interval: 200,  ease: 0.15, threshold: 8  },
+            hard:   { interval: 120,  ease: 0.0 , threshold: 4  }
+        };
+        const p = presets[difficulty];
+        this.updateInterval      = p.interval;
+        this.transitionDuration  = p.ease;
+        this.idleThreshold       = p.threshold;
+    }
+    
+    public update(currentGameState: GameState, currentTime: number): { moveUp: boolean, moveDown: boolean } {
+        this.gameState = currentGameState;
+        if (currentTime - this.lastUpdateTime >= this.updateInterval) {
+            this.lastUpdateTime = currentTime;
+            this.lastTargetY = this.targetY;
+            this.transitionProgress = 0.0;
+            this.predictBallPath();
+        }
+        this.transitionProgress += 1 / (60 * this.transitionDuration);
+        this.transitionProgress = Math.min(this.transitionProgress, 1.0);
+        
+        return this.getControls();
+    }
+
+    private simulateBallStep(ball: Ball, paddles: Paddles, dt: number): void {
+        ball.x += ball.speedX * dt;
+        ball.y += ball.speedY * dt;
+
+        // 天井・床との衝突
+        if (ball.y - ball.radius <= 0) {
+            ball.y = ball.radius + 1;
+            ball.speedY = Math.abs(ball.speedY);
+        } else if (ball.y + ball.radius >= this.canvasHeight) {
+            ball.y = this.canvasHeight - ball.radius - 1;
+            ball.speedY = -Math.abs(ball.speedY);
+        }
+
+        const pw = paddles.width;
+        const ph = paddles.height;
+
+        // 左パドル衝突
+        if (ball.speedX < 0 && ball.x - ball.radius <= pw + 3) {
+            if (ball.y >= paddles.player1Y && ball.y <= paddles.player1Y + ph) {
+                ball.x = pw + 3 + ball.radius + 1;
+                const rel = (ball.y - (paddles.player1Y + ph / 2)) / (ph / 2);
+                const angle = Math.max(-0.8, Math.min(0.8, rel)) * (Math.PI / 3.5);
+                const speed = Math.min(Math.hypot(ball.speedX, ball.speedY) * 1.05, ball.maxSpeed);
+                ball.speedX = speed * Math.max(Math.cos(angle), 0.7);
+                ball.speedY = speed * Math.sin(angle);
+                if (Math.abs(ball.speedY) < 50) ball.speedY = 50 * Math.sign(ball.speedY || 1);
+            }
+        }
+
+        // 右パドル衝突
+        if (ball.speedX > 0 && ball.x + ball.radius >= this.canvasWidth - (pw + 3)) {
+            if (ball.y >= paddles.player2Y && ball.y <= paddles.player2Y + ph) {
+                ball.x = this.canvasWidth - (pw + 3) - ball.radius - 1;
+                const rel = (ball.y - (paddles.player2Y + ph / 2)) / (ph / 2);
+                const angle = Math.max(-0.8, Math.min(0.8, rel)) * (Math.PI / 3.5);
+                const speed = Math.min(Math.hypot(ball.speedX, ball.speedY) * 1.05, ball.maxSpeed);
+                ball.speedX = -speed * Math.max(Math.cos(angle), 0.7);
+                ball.speedY = speed * Math.sin(angle);
+                if (Math.abs(ball.speedY) < 50) ball.speedY = 50 * Math.sign(ball.speedY || 1);
+            }
+        }
+    }
+
+    private predictBallPath(): void {
+        if (!this.gameState) return;
+        
+        this.predictedBallPath = [];
+        
+        const ball = {
+            x: this.gameState.ball.x,
+            y: this.gameState.ball.y,
+            speedX: this.gameState.ball.speedX,
+            speedY: this.gameState.ball.speedY,
+            radius: this.gameState.ball.radius,
+            maxSpeed: this.gameState.ball.maxSpeed
+        };
+        
+        const paddleHeight = this.gameState.paddles.height;
+        const paddleWidth = this.gameState.paddles.width;
+        const player1Y = this.gameState.paddles.player1Y;
+        const player2Y = this.gameState.paddles.player2Y;
+        
+        let simulationTime = 0;
+        const timeStep = (this.gameState as any).deltaTime || 0.016;  // 実ゲームと同じ dt を使用
+        const maxPredictionTime = 3; 
+        
+        while (simulationTime < maxPredictionTime) {
+            this.simulateBallStep(ball, this.gameState.paddles, timeStep);
+            this.predictedBallPath.push({ x: ball.x, y: ball.y });
+            simulationTime += timeStep;
+        }
+        let targetY = this.canvasHeight / 2 - paddleHeight / 2; // Default to center
+        
+        const aiSidePredictions = this.predictedBallPath.filter(pos => pos.x > this.canvasWidth / 2);
+        
+        if (aiSidePredictions.length > 0) {
+            const gameStatePaddleWidth = this.gameState.paddles.width;
+            
+            const crossingPoints = aiSidePredictions.filter(pos => 
+                pos.x >= this.canvasWidth - (gameStatePaddleWidth + 5) && 
+                pos.x <= this.canvasWidth - gameStatePaddleWidth
+            );
+            
+            if (crossingPoints.length > 0) {
+                targetY = crossingPoints[0].y - paddleHeight / 2; // Center paddle on ball
+            } else if (aiSidePredictions.length > 0) {
+                targetY = aiSidePredictions[aiSidePredictions.length - 1].y - paddleHeight / 2;
+            }
+        }
+        if (this.gameState.ball.speedX < 0 && this.gameState.ball.x < this.canvasWidth * 0.75) {
+            targetY = this.canvasHeight / 2 - paddleHeight / 2;
+        }
+        let imperfectionRange = 0;
+        switch (this.difficulty) {
+            case 'easy':
+                imperfectionRange = 250;
+                break;
+            case 'medium':
+                imperfectionRange = 80;
+                
+                break;
+            case 'hard':
+                imperfectionRange = 0;
+                break;
+        
+        }
+        
+        const imperfection = Math.random() * imperfectionRange * 2 - imperfectionRange;
+        this.targetY = targetY + imperfection;
+        this.targetY = Math.max(5, Math.min(this.canvasHeight - paddleHeight - 5, this.targetY));
+    }
+    
+    private getControls(): { moveUp: boolean, moveDown: boolean } {
+        if (!this.gameState) {
+            return { moveUp: false, moveDown: false };
+        }
+        
+        const paddleY = this.gameState.paddles.player2Y;
+        const paddleHeight = this.gameState.paddles.height;
+        const smoothY = this.lastTargetY + 
+            (this.targetY - this.lastTargetY) * this.easeInOutQuad(this.transitionProgress);
+        if (Math.abs(paddleY - smoothY) < this.idleThreshold) {
+            return { moveUp: false, moveDown: false };
+        }
+        const moveUp = smoothY < paddleY;
+        const moveDown = smoothY > paddleY;
+        if (this.difficulty === 'easy' && Math.random() < 0.1) {
+            return { moveUp: !moveUp, moveDown: !moveDown }; 
+        }
+        
+        if (this.difficulty === 'medium' && Math.random() < 0.03) {
+            return { moveUp: false, moveDown: false }; 
+        }
+        
+        return { moveUp, moveDown };
+
+    }
+    private easeInOutQuad(t: number): number {
+        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+
+    public getCurrentDifficulty(): AIDifficulty {
+        return this.difficulty;
+      }
+}

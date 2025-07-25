@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+</head>
+<body>
+    <div id="pong-game" class="main-menu">
+        <canvas id="pongCanvas" width="800" height="450"></canvas>
+        
+        <div id="scoreboard">
+            <div id="player1-score">0</div>
+            <div>-</div>
+            <div id="player2-score">0</div>
+        </div>
+        
+        <div id="pong-menu">
+            <div class="game-title-container">
+                <h1 class="game-title" id="game-title" data-i18n="game.classic_pong">PONG</h1>
+                <p class="game-subtitle" id="game-subtitle" data-i18n="game.original_experience">Classic 1v1 Experience</p>
+            </div>
+            
+            <div class="menu-buttons">
+                <button id="play-button" class="pong-button" data-i18n="game.play">Play Game</button>
+                
+                <div id="difficulty-selector-container" class="hidden difficulty-container">
+                    <h2 data-i18n="game.ai_difficulty">AI Difficulty</h2>
+                    <div class="difficulty-options">
+                        <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn active" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                    </div>
+                </div>
+                
+                <button id="back-to-modes-button" class="pong-button back-button" href="/pong-selection" data-i18n="game.back">Back</button>
+            </div>
+            
+            <div class="game-info">
+                <div class="info-card" id="rules-card">
+                    <h3 data-i18n="game.rules">Game Rules</h3>
+                    <p data-i18n="game.rules_description">Score points by getting the ball past your opponent's paddle. First to reach the winning score wins!</p>
+                </div>
+                <div class="info-card" id="controls-card">
+                    <h3 data-i18n="game.controls">Controls</h3>
+                    <div class="controls-list" id="controls-list">
+                      <div><span data-i18n="game.controls_info.player1">Player 1:</span> W / S <span data-i18n="game.controls_info.keys">Keys</span></div>
+                      <div><span data-i18n="game.controls_info.player2">Player 2:</span> ↑ / ↓ <span data-i18n="game.controls_info.arrow_keys">Arrow Keys</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="pong-winner-announcement" class="hidden">
+            <div class="winner-content">
+            <h2 data-i18n="game.champion">Champion!</h2>
+            <div class="winner-name" id="pong-champion-name">Player Name</div>
+            <div class="trophy-icon">🏆</div>
+            <button id="new-game-button" class="pong-button" data-i18n="game.new_game">New Game</button>
+            <button id="back-to-modes-button-winner" class="pong-button back-button" href="/pong-selection" data-i18n="game.back">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="countdown-container" class="hidden">
+        <div id="countdown">3</div>
+    </div>
+
+    <div id="chart-tooltip" class="chart-tooltip"></div>
+
+    <script type="module" src="/src/pages/pong-game.ts"></script>
+</body>
+</html>

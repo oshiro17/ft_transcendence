@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+	  "module": "commonjs",
+	  "target": "ES6",
+	  "esModuleInterop": true,
+	  "skipLibCheck": true,
+	  "strict": true,
+	  "moduleResolution": "node",
+	  "resolveJsonModule": true,
+	  "typeRoots": ["./types", "./node_modules/@types"],
+	  "types": ["node", "fastify"]
+	},
+	"include": ["src/**/*", "types/**/*.d.ts"]
+  }
+  

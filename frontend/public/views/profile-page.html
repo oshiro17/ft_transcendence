@@ -1,0 +1,46 @@
+<head>
+
+</head>
+<main>
+  <div class="profile-container">
+      <h1 class="page-title" data-i18n="profile.title">Player Profile</h1>
+      <!-- Tab Navigation -->
+      <ul class="tabs">
+          <li class="tab-link active" data-tab="tab-profile" data-i18n="profile.tabs.info">Profile Info</li>
+          <li class="tab-link" data-tab="tab-history" data-i18n="profile.tabs.history">History</li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div id="tab-profile" class="tab-content active">
+        <div class="profile-info">
+            <img src="/images/avatar1.png" alt="Player Avatar" class="avatar">
+            <div class="profile-details">
+                <h2 class="username">Username placeholder</h2>
+                <div class="name-container">
+                    <span class="namepr" data-i18n="profile.name">Name:</span>
+                    <span class="name"></span>
+                </div>
+                <button class="btn btn-log-out" data-i18n="profile.logout"></button>
+            </div>
+            <!-- <button class="btn btn-profile-edit" ><a href="/profile-edit">(一応)Edit Profile</a></button> -->
+            <a href="/profile-edit" class="btn btn-profile-edit" data-i18n="profile.edit">Edit Profile</a>
+        </div>
+    </div>
+      <div id="tab-container"></div>
+      
+      <div id="tab-history" class="tab-content">
+          <table class="score-table">
+              <thead>
+                  <tr>
+                      <th data-i18n="profile.history.date">Date</th>
+                      <th data-i18n="profile.history.opponent">Opponent</th>
+                      <th data-i18n="profile.history.result">Result</th>
+                      <th data-i18n="profile.history.winner">Winner</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</main>

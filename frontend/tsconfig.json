@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* ===== 基本設定 ===== */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+
+    /* ===== パスエイリアスの設定 ===== */
+    "baseUrl": "src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"],
+      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@game/*": ["game/*"],
+      "@services/*": ["services/*"]
+    }
+  },
+  /* ===== どのフォルダを対象にするか ===== */
+  "include": [
+    "src",
+    "vite-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

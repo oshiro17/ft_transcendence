@@ -1,0 +1,223 @@
+{
+  "auth": {
+    "login": "ログイン",
+    "login_with": "でログイン",
+    "register": "登録",
+    "register_with": "で登録",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "confirm_password": "パスワード確認",
+    "first_name": "名",
+    "last_name": "姓",
+    "or": "または",
+    "no_account": "アカウントをお持ちでないですか？",
+    "has_account": "すでにアカウントをお持ちですか？"
+  },
+  "language": {
+    "en": "英語",
+    "fr": "フランス語",
+    "es": "スペイン語"
+  },
+  "nav": {
+    "home": "ホームへ",
+    "profile": "プロフィール",
+    "back_to_home": "ホームに戻る"
+  },
+  "home": {
+    "title": {
+      "click": "虎戦",
+      "to": "へ",
+      "play": "プレイ",
+      "pong": "ポン"
+    }
+  },
+  "game": {
+    "select_mode_class": {
+      "intro": "モードを選択",
+      "mode": "ゲームモード"
+    },
+    "new_game": "新しいゲーム",
+    "champion": "チャンピオン！",
+    "player1": "プレイヤー1",
+    "player2": "プレイヤー2",
+    "play": "今すぐプレイ",
+    "customize": "カスタマイズ",
+    "back": "戻る",
+    "back_to_home": "ホームに戻る",
+    "winning_score": "勝利スコア: ",
+    "ai_difficulty": "AI難易度",
+    "classic_pong": "クラシックポン",
+    "ai_challenge": "AIチャレンジ",
+    "tournament": "トーナメントモード",
+    "tournament_description": "チャンピオンを目指して戦おう！",
+    "controls": "操作方法",
+    "original_experience": "オリジナルの1対1体験",
+    "test_skills": "AIと対戦して腕を試そう",
+    "chaotic_fun": "マルチプレイだよ",
+    "math_game1": "四人ゲーム",
+    "rules": "ゲームルール",
+    "rules_description": "ボールを相手のパドルの先へ通して得点を稼ごう。先に勝利スコアに到達した方が勝ち！",
+    "controls_info": {
+      "player1": "プレイヤー1：",
+      "player2": "プレイヤー2：",
+      "top": "上：",
+      "left": "左：",
+      "bottom": "下：",
+      "right": "右：",
+      "controls": "操作：",
+      "see_ai": "AIの予測を見る：",
+      "player": "プレイヤー",
+      "arrow_keys": "矢印キー",
+      "keys": "キー",
+      "ai_opponent": "AI対戦相手",
+      "computer_controlled": "コンピューター操作",
+      "toggle_ai_debug": "Alt+QでAI予測表示の切り替え"
+    },
+    "play_now": "今すぐプレイ",
+    "ai_mode": {
+      "title": "AI ポン",
+      "subtitle": "コンピューターに挑戦！",
+      "description": "AI相手に複数の難易度でプレイできます。タイミングを見極め、AIの動きを読んで勝利を目指そう。",
+      "difficulty": {
+        "easy": "簡単",
+        "medium": "普通",
+        "hard": "難しい"
+      }
+    },
+    "math_game": {
+      "title": "42",
+      "subtitle": "4Pモード",
+      "rules": "42に反応しよう。勝利スコアに到達した方が勝ち！"
+    },
+    "winning_score_display": "勝利スコア",
+    "back_to_menu": "メニューに戻る",
+    "customize_title": "カスタムゲーム",
+    "tournament_mode": {
+      "title": "トーナメントモード",
+      "subtitle": "4人対戦チャンピオンバトル",
+      "enter_names": "プレイヤー名を入力",
+      "player1": "プレイヤー1：",
+      "player2": "プレイヤー2：",
+      "player3": "プレイヤー3：",
+      "player4": "プレイヤー4：",
+      "default_player1": "プレイヤー1",
+      "default_player2": "プレイヤー2",
+      "default_player3": "プレイヤー3",
+      "default_player4": "プレイヤー4",
+      "start": "トーナメント開始",
+      "bracket": "トーナメント表",
+      "semifinals": "準決勝",
+      "final": "決勝",
+      "vs": "対",
+      "waiting": "待機中...",
+      "play_next": "次の試合をプレイ",
+      "champion": "トーナメントチャンピオン",
+      "new": "新しいトーナメント"
+    },
+    "features": {
+      "two_players": "2人プレイ",
+      "same_keyboard": "同じキーボードで対戦",
+      "addictive": "とても夢中になる…",
+      "single_player": "シングルプレイ",
+      "difficulty_levels": "3段階の難易度",
+      "adaptive_ai": "シュミレートAI対戦",
+      "four_players": "4人プレイ",
+      "square_arena": "スクエアアリーナ",
+      "fast_paced": "スピーディーな展開"
+    }
+  },
+  "four_player_pong": {
+    "title": "42ゲーム",
+    "subtitle": "答えが42のとき、できるだけ早くボタンを押そう！",
+    "play": "ゲーム開始",
+    "back": "戻る",
+    "ranking_title": "🏆 ランキング 🏆",
+    "play_again": "もう一度プレイ",
+    "rules": "ゲームルール",
+    "rules_description": "相手のブロックを壊して得点を稼ごう。先に勝利スコアに達したプレイヤーが勝利！",
+    "controls": "操作方法",
+    "controls_info": {
+      "player1": "プレイヤー1：",
+      "player2": "プレイヤー2：",
+      "player3": "プレイヤー3：",
+      "player4": "プレイヤー4：",
+      "press": "ボタンを押す",
+      "bottom": "下",
+      "arrow_keys": "矢印キー"
+    }
+  },
+  "profile": {
+    "title": "プレイヤープロフィール",
+    "logout": "ログアウト",
+    "tabs": {
+      "info": "プロフィール情報",
+      "stats": "統計",
+      "history": "履歴"
+    },
+    "add_friend": "フレンド追加",
+    "edit": "編集",
+    "login": "ログイン",
+    "name": "名前：",
+    "username_placeholder": "ユーザー名",
+    "name_placeholder": "名前",
+    "history": {
+      "date": "日付",
+      "opponent": "対戦相手",
+      "result": "結果",
+      "winner": "勝者",
+      "no_data": "履歴がありません"
+    }
+  },
+  "profile_edit": {
+    "title": "編集",
+    "personal_info": "個人情報",
+    "username": "ユーザー名：",
+    "display_name": "表示名：",
+    "avatar": "アバター：",
+    "save": "変更を保存",
+    "gdpr_options": "GDPRオプション",
+    "gdpr_info": "GDPRに基づき、あなたのデータについて以下の権利があります。",
+    "data_download": "データをダウンロード",
+    "data_download_info": "当システムに保存されている個人データを取得できます。",
+    "download_data": "データをダウンロード",
+    "anonymize": "アカウントの匿名化",
+    "anonymize_info": "ゲーム統計は保持したまま、個人情報を削除します。",
+    "anonymize_data": "匿名化する",
+    "delete_account": "アカウント削除",
+    "delete_info": "アカウントとすべての関連データを完全に削除します。この操作は元に戻せません。",
+    "delete": "アカウントを削除",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "anonymize_title": "アカウントの匿名化",
+    "anonymize_confirm_message": "個人情報を匿名化します。履歴は残りますが実名とは紐づきません。この操作は元に戻せません。続行しますか？",
+    "delete_title": "アカウント削除",
+    "delete_confirm_message": "アカウントとすべてのデータを削除します。この操作は元に戻せません。本当に削除しますか？"
+  },
+  "error": {
+    "oops": "おっと！",
+    "not_found": "ページが見つかりません",
+    "looking_for": "お探しのページは",
+    "does_not_exist": "存在しません。",
+    "back_home": "ホームに戻る"
+  },
+  "quiz.question.meaning_of_life": "生命、宇宙、そして万物についての究極",
+  
+  "history": {
+    "no_data": "履歴がありません",
+    "date": "日付",
+    "opponent": "対戦相手",
+    "result": "結果",
+    "winner": "勝者"
+  },
+  "buttons": {
+    "play": "プレイ",
+    "back": "戻る",
+    "edit_profile": "プロフィール編集",
+    "logout": "ログアウト"
+  },
+  "profile_info": {
+    "username": "ユーザー名",
+    "full_name": "名前"
+  }
+  
+}

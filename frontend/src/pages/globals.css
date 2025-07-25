@@ -1,0 +1,386 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 1em;
+}
+
+div {
+    margin: 0;
+    border: 0;
+    border-style: solid;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+.navbar .nav-links ul {
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+}
+
+.nav {
+    position: fixed;
+    width: 100vw;
+    z-index: 10;
+    display: block;
+    opacity: 0;
+}
+
+.nav.in {
+    opacity: 1;
+}
+
+.navbar {
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5.5rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    border-style: solid;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navbar .logo {
+    color: #FFD700;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    flex: 0 0 auto;
+}
+
+.navbar .nav-links {
+    flex: 0 0 auto; 
+}
+
+.language-switcher {
+opacity: 0.7;
+}
+
+.language-btn {
+position: relative;
+outline: none;
+}
+
+.language-btn::after {
+content: '';
+position: absolute;
+bottom: -2px;
+left: 50%;
+width: 0;
+height: 2px;
+background-color: #00FFFF;
+transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+.language-switcher {
+    opacity: 0.6;
+}
+}
+
+.navbar .nav-links ul {
+    justify-content: center;
+    display: flex;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.navbar .nav-links a {
+    margin: 0 2.5rem;
+    display: inline-block;
+    opacity: 0.7;
+}
+
+.navbar .nav-links ul li {
+    margin: 0 25px;
+}
+
+.profile-link {
+    display: flex;
+    flex: 0 0 auto;
+    height: 3rem;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: right;
+}
+
+.profile-button-label {
+    position: relative;
+    display: flex;
+    align-items: center;     gap: 0.5rem;     cursor: pointer;
+}
+
+.profile-label-wrapper {
+    position: relative;
+    overflow: hidden; 
+    height: 100%; 
+    height: 100%;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #00FFFF;
+}
+
+.profile-button > svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.profile-label {
+    position: relative;
+    display: block;
+    font-size: 1.2rem;
+    height: 100%;
+    font-weight: bold;
+    color: #FFFFFF;
+    transform: translateY(0); 
+}
+
+.profile-label:after {
+    content: attr(data-hover);     position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(0);     
+}
+
+.flip-effect a {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    flex-grow: 1;
+    padding: 0;
+}
+
+.flip-effect a span {
+    display: block;
+}
+
+.flip-effect a:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    content: attr(data-hover);
+    display: inline;
+    text-align: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #003366;
+    padding: 10px;
+}
+
+.nav-link:active,
+.nav-link:focus {
+    color: #00FFFF;
+    opacity: 1 !important;
+}
+
+.nav-link[href*="/home/"]:current,
+.nav-link[href*="/pong-game/"]:current,
+.ham-menu {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.92);
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top: 10vh;
+}
+
+.ham-menu .nav-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: #FFFFFF;
+}
+
+.ham-menu-content {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.burger-menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+    z-index: 9999;
+}
+
+.line {
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 6;
+}
+.line1 {
+    stroke-width: 6;
+}
+.line2 {
+    stroke-width: 6;
+}
+.line3 {
+    stroke-width: 6;
+}
+
+.opened .line1 {
+    stroke-width: 6;
+}
+.opened .line2 {
+    stroke-width: 6;
+}
+.opened .line3 {
+    stroke-width: 6;
+}
+
+.hiden {
+    display: none !important;
+}
+
+@media (min-width: 769px) {
+    .ham-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) { 
+    .burger-menu-button {
+        display: flex ;
+    }
+
+    .nav-links {
+        display: none;
+    }
+    
+    .profile-button-label {
+        
+        display: none;
+    }
+
+    .burger-menu-button .profile-button-label {
+        display: flex;
+    }
+}
+
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+#app {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+}
+
+
+.navbar {
+    display: flex;
+    padding: 0 5%;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5.5rem;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+    border-style: solid;
+  }
+  
+  .navbar .logo {
+     color: #FFD700;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    flex: 0 0 auto;
+  }
+  
+  .navbar .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar .nav-links ul {
+    display: flex;
+    font-size: clamp(1rem, 1.4vw, 1.4rem);
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar .nav-links a {
+    margin: 0 2.5rem;
+    display: inline-block;
+    opacity: 0.7;
+    color: #FFFFFF;
+  }
+  
+  .profile-link {
+    display: flex;
+    flex: 0 0 auto;
+    height: 3rem;
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar .nav-links {
+      display: none;
+    }
+    
+    .profile-link {
+      display: none;
+    }
+    
+    .navbar {
+      justify-content: space-between;
+    }
+  }
+
+/* ページタイトル用スタイル */
+.page-title, h1, h2 {
+  color: #00FFFF;   /* 青をベースに */
+  margin: 1rem 0;
+  font-weight: bold;
+}
+/* 強調したい単語向け */
+.highlight {
+  color: #FFD700;   /* 黄色アクセント */
+}

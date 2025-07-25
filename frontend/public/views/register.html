@@ -1,0 +1,16 @@
+<div class="register-container">
+    <h2 data-i18n="auth.register">S'inscrire</h2>
+    <form id="register-form">
+        <input type="text" id="username" placeholder="Nom d'utilisateur" data-i18n-placeholder="auth.username" required />
+        <input type="text" id="first-name" placeholder="Prénom" data-i18n-placeholder="auth.first_name" required />
+        <input type="text" id="last-name" placeholder="Nom" data-i18n-placeholder="auth.last_name" required />
+        <input type="password" id="password" placeholder="Mot de passe" data-i18n-placeholder="auth.password" required />
+        <input type="password" id="confirm-password" placeholder="Confirmation mot de passe" data-i18n-placeholder="auth.confirm_password" required />
+        <button type="submit" data-i18n="auth.register">Créer le compte</button>
+    </form>
+    <div id="message"></div>
+    <p class="signup-link" style="display: block; margin-top: 15px; text-align: center; color: black;">
+        <span data-i18n="auth.has_account">Vous avez déjà un compte ?</span> 
+        <a href="/login" style="color: #FFD500; font-weight: bold; text-decoration: none;" data-i18n="auth.login">Se connecter</a>
+    </p>
+</div>

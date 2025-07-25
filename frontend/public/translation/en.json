@@ -1,0 +1,203 @@
+{
+  "auth": {
+    "login": "Log in",
+    "login_with": "Log in with",
+    "register": "Register",
+    "register_with": "Register with",
+    "username": "Username",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "or": "or",
+    "no_account": "Don’t have an account?",
+    "has_account": "Already have an account?"
+  },
+  "language": {
+    "en": "English",
+    "fr": "French",
+    "es": "Spanish"
+  },
+  "nav": {
+    "home": "Home",
+    "profile": "Profile",
+    "back_to_home": "Back to home"
+  },
+  "home": {
+    "title": {
+      "click": "Click",
+      "to": "to",
+      "play": "Play",
+      "pong": "Pong"
+    }
+  },
+  "game": {
+    "select_mode_class": {
+      "intro": "Select mode",
+      "mode": "Game mode"
+    },
+    "new_game": "New game",
+    "champion": "Champion!",
+    "player1": "Player 1",
+    "player2": "Player 2",
+    "play": "Play now",
+    "customize": "Customize",
+    "back": "Back",
+    "back_to_home": "Back to home",
+    "winning_score": "Winning score: ",
+    "ai_difficulty": "AI difficulty",
+    "classic_pong": "Classic Pong",
+    "ai_challenge": "AI challenge",
+    "tournament": "Tournament mode",
+    "tournament_description": "Battle to become champion!",
+    "controls": "Controls",
+    "original_experience": "Original 1-on-1 experience",
+    "test_skills": "Test your skills against the AI",
+    "chaotic_fun": "Multiplayer chaos",
+    "math_game1": "4-player game",
+    "rules": "Rules",
+    "rules_description": "Hit the ball past your opponent’s paddle to score. First to reach the winning score wins!",
+    "controls_info": {
+      "player1": "Player 1:",
+      "player2": "Player 2:",
+      "top": "Up:",
+      "left": "Left:",
+      "bottom": "Down:",
+      "right": "Right:",
+      "controls": "Controls:",
+      "see_ai": "Show AI predictions:",
+      "player": "Player",
+      "arrow_keys": "Arrow keys",
+      "keys": "Keys",
+      "ai_opponent": "AI opponent",
+      "computer_controlled": "Computer-controlled",
+      "toggle_ai_debug": "Toggle AI debug with Alt+Q"
+    },
+    "play_now": "Play now",
+    "ai_mode": {
+      "title": "AI Pong",
+      "subtitle": "Challenge the computer!",
+      "description": "Play against AI at multiple difficulty levels. Time your shots and outplay the AI to win.",
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      }
+    },
+    "math_game": {
+      "title": "42",
+      "subtitle": "4P mode",
+      "rules": "React when the answer is 42. First to the winning score wins!"
+    },
+    "winning_score_display": "Winning score",
+    "back_to_menu": "Back to menu",
+    "customize_title": "Custom game",
+    "tournament_mode": {
+      "title": "Tournament mode",
+      "subtitle": "4-player championship battle",
+      "enter_names": "Enter player names",
+      "player1": "Player 1:",
+      "player2": "Player 2:",
+      "player3": "Player 3:",
+      "player4": "Player 4:",
+      "default_player1": "Player 1",
+      "default_player2": "Player 2",
+      "default_player3": "Player 3",
+      "default_player4": "Player 4",
+      "start": "Start tournament",
+      "bracket": "Bracket",
+      "semifinals": "Semifinals",
+      "final": "Final",
+      "vs": "vs",
+      "waiting": "Waiting...",
+      "play_next": "Play next match",
+      "champion": "Tournament champion",
+      "new": "New tournament"
+    },
+    "features": {
+      "two_players": "2-player",
+      "same_keyboard": "Same keyboard",
+      "addictive": "Highly addictive…",
+      "single_player": "Single player",
+      "difficulty_levels": "3 difficulty levels",
+      "adaptive_ai": "Simulated AI battles",
+      "four_players": "4-player",
+      "square_arena": "Square arena",
+      "fast_paced": "Fast-paced action"
+    }
+  },
+  "four_player_pong": {
+    "title": "Game 42",
+    "subtitle": "Press when it’s 42!",
+    "play": "Start game",
+    "back": "Back",
+    "ranking_title": "🏆 Rankings 🏆",
+    "play_again": "Play again",
+    "rules": "Rules",
+    "rules_description": "Break opponents’ blocks to score. First to the winning score wins!",
+    "controls": "Controls",
+    "controls_info": {
+      "player1": "Player 1:",
+      "player2": "Player 2:",
+      "player3": "Player 3:",
+      "player4": "Player 4:",
+      "press": "Press button",
+      "bottom": "Down",
+      "arrow_keys": "Arrow keys"
+    }
+  },
+  "profile": {
+    "title": "Player Profile",
+    "logout": "Log out",
+    "tabs": {
+      "info": "Profile info",
+      "stats": "Stats",
+      "history": "History"
+    },
+    "add_friend": "Add friend",
+    "edit": "Edit",
+    "login": "Log in",
+    "name": "Name:",
+    "username_placeholder": "Username",
+    "name_placeholder": "Name",
+    "history": {
+      "date": "Date",
+      "opponent": "Opponent",
+      "result": "Result",
+      "winner": "Winner"
+    }
+  },
+  "profile_edit": {
+    "title": "Edit",
+    "personal_info": "Personal info",
+    "username": "Username:",
+    "display_name": "Display name:",
+    "avatar": "Avatar:",
+    "save": "Save changes",
+    "gdpr_options": "GDPR options",
+    "gdpr_info": "Under GDPR you have the following rights regarding your data.",
+    "data_download": "Download data",
+    "data_download_info": "Get a copy of the personal data we hold.",
+    "download_data": "Download data",
+    "anonymize": "Anonymize account",
+    "anonymize_info": "Keep game stats but remove personal details.",
+    "anonymize_data": "Anonymize",
+    "delete_account": "Delete account",
+    "delete_info": "Permanently delete your account and all data. This cannot be undone.",
+    "delete": "Delete account",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "anonymize_title": "Anonymize account",
+    "anonymize_confirm_message": "This will anonymize your personal data. History remains but not linked to your name. Cannot be undone. Continue?",
+    "delete_title": "Delete account",
+    "delete_confirm_message": "This will permanently delete your account and all associated data. Are you sure?"
+  },
+  "error": {
+    "oops": "Oops!",
+    "not_found": "Page not found",
+    "looking_for": "The page you’re looking for",
+    "does_not_exist": "does not exist.",
+    "back_home": "Back to home"
+  },
+  "quiz.question.meaning_of_life": "The ultimate question of life, the universe, and everything"
+}

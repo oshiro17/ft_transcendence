@@ -1,0 +1,82 @@
+version: "3.9"  # Composeファイルのバージョン指定
+
+services:
+  # ===========================
+  # バックエンド（Fastifyサーバー）
+  # ===========================
+  backend:
+    build:
+      context: ./backend       # backend ディレクトリ内の Dockerfile でビルド
+    container_name: backend    # コンテナ名を固定
+    env_file:
+      - .env                   # 環境変数を読み込むファイル
+    ports:
+      - "3000:3000"            # ホスト:コンテナ ポート
+    volumes:
+      # ソースコードをコンテナ内の /app にバインドマウント
+      - type: bind
+        source: ./backend
+        target: /app
+      # node_modules はボリュームを使う（ホスト側の依存関係と分離）
+      - type: volume
+        source: backend_node_modules
+        target: /app/node_modules
+    restart: always            # コンテナが落ちたら常に再起動
+    depends_on:
+      - database               # database サービスが先に起動するように
+
+  # ===========================
+  # フロントエンド（Vite開発サーバー）
+  # ===========================
+  frontend:
+    build:
+      context: ./frontend      # frontend ディレクトリ内の Dockerfile でビルド
+    container_name: frontend
+    command: ["npm", "run", "dev"]  # 起動時に実行するコマンド（開発モード）
+    ports:
+      - "8080:8080"            # Vite のポートを外部に公開
+    volumes:
+      # ソースコードをバインドマウント
+      - type: bind
+        source: ./frontend
+        target: /app
+      # node_modules はボリュームを使う
+      - type: volume
+        source: frontend_node_modules
+        target: /app/node_modules
+    restart: always
+
+  # ===========================
+  # Nginx（リバースプロキシ & SSL終端）
+  # ===========================
+  nginx:
+    build:
+      context: ./nginx         # nginx ディレクトリ内の Dockerfile でビルド
+    container_name: nginx
+    ports:
+      - "8443:443"             # ホスト:コンテナ ポート（HTTPS用）
+    depends_on:
+      - backend
+      - frontend               # バックエンド・フロントが起動してから動かす
+    restart: always
+
+  # ===========================
+  # データベース（SQLite）
+  # ===========================
+  database:
+    image: nouchka/sqlite3     # 既存の軽量 SQLite イメージを利用
+    container_name: sqlite_db
+    volumes:
+      # SQLite のデータを永続化するボリューム
+      - type: volume
+        source: sqlite_data
+        target: /data
+    restart: on-failure        # エラー時のみ再起動
+
+# ===========================
+# 永続化ボリュームの定義
+# ===========================
+volumes:
+  backend_node_modules: {}     # バックエンド用 node_modules
+  frontend_node_modules: {}    # フロントエンド用 node_modules
+  sqlite_data: {}              # SQLite のデータ永続化用

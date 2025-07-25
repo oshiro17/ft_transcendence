@@ -1,0 +1,169 @@
+
+    /* カラーパレット統一スタイル */
+    body {
+      background: #000000;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* スコアボード */
+    #scoreboard {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222222;
+      color: #FFFFFF;
+      padding: 15px 25px;
+      border-radius: 16px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,255,255,0.4);
+    }
+
+    /* トーナメントコンテナ */
+    .bracket-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(34,34,34,0.8);
+      border-radius: 16px;
+      flex-wrap: nowrap;
+      color: #FFFFFF;
+    }
+
+    /* 準決勝・決勝カラム */
+    .left-rounds, .final-round {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* ラウンドタイトル */
+    .round-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    /* 各試合ボックス */
+    .match {
+      background: rgba(34,34,34,0.5);
+      border: 2px solid rgba(255,215,0,0.3);
+      border-radius: 10px;
+      padding: 12px 15px;
+      min-width: 200px;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .match:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px rgba(0,255,255,0.6);
+    }
+
+    /* プレイヤー名 */
+    .match-player {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      padding: 4px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .match-player.winner {
+      color: #00FFFF;
+      font-weight: bold;
+    }
+
+    /* VS のデザイン */
+    .vs {
+      margin: 8px 0;
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    /* 現在進行中の試合 */
+    .match.current-match {
+      border-color: #00FFFF;
+      box-shadow: 0 0 15px rgba(0,255,255,0.8);
+    }
+
+    /* トーナメント全体背景 */
+    #tournament-bracket {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(34,34,34,0.6);
+      border-radius: 16px;
+      color: #FFFFFF;
+    }
+
+    /* ボタン共通 */
+    .pong-button {
+      background: #FFD700;
+      color: #FFFFFF;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .pong-button:hover {
+      background: #00FFFF;
+      color: #FFFFFF;
+    }
+
+    /* 戻るボタン */
+    .back-button {
+      background: #222222;
+      color: #FFFFFF;
+      border: 2px solid #FFD700;
+    }
+    .back-button:hover {
+      background: #333333;
+    }
+
+    /* レスポンシブ対応 */
+    @media screen and (max-width: 768px) {
+      .bracket-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+      .match {
+        min-width: 160px;
+      }
+    }
+
+    /* カウントダウン */
+    #countdown-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(34,34,34,0.7);
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(0,255,255,0.6);
+      border: 4px solid rgba(0,255,255,0.8);
+      backdrop-filter: blur(4px);
+    }
+    #countdown {
+      font-size: 5rem;
+      font-weight: bold;
+      color: #00FFFF;
+      text-shadow: 0 0 20px rgba(0,255,255,0.8);
+    }

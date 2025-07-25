@@ -1,0 +1,84 @@
+
+ 
+
+<main class="profile-edit-wrapper grid-layout">
+  <!-- 左カラム：個人情報編集 -->
+  <section class="profile-column left-panel">
+    <div class="panel-header">
+      <h1 class="profile-title" data-i18n="profile_edit.title">✏️ Profile Center</h1>
+      <p class="profile-subtitle">
+        Update your info and control your privacy settings
+      </p>
+    </div>
+    <div class="panel-body">
+      <form id="personal-info-form" class="personal-info-card">
+        <h2 data-i18n="profile_edit.personal_info">👤 Personal Info</h2>
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="username" data-i18n="profile_edit.username">Username</label>
+            <input type="text" id="username" name="username" class="input-field">
+          </div>
+          <div class="field-block">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" class="input-field">
+          </div>
+          <div class="field-block">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" class="input-field">
+          </div>
+        </div>
+        <div class="actions-bar">
+          <button type="submit" class="btn btn-save" data-i18n="profile_edit.save">💾 Save</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 右カラム：GDPR オプション -->
+  <section class="profile-column right-panel">
+    <div class="panel-header">
+      <h2 data-i18n="profile_edit.gdpr_options">🔒 Privacy &amp; GDPR</h2>
+    </div>
+    <div class="gdpr-card-grid">
+      <div class="gdpr-card-item">
+        <div class="gdpr-icon">📥</div>
+        <div class="gdpr-text">
+          <h3 data-i18n="profile_edit.data_download">Download Data</h3>
+          <p data-i18n="profile_edit.data_download_info">Get all your personal data.</p>
+          <button id="download-data-btn" class="btn btn-secondary" data-i18n="profile_edit.download_data">Download</button>
+        </div>
+      </div>
+
+      <div class="gdpr-card-item">
+        <div class="gdpr-icon">🕶️</div>
+        <div class="gdpr-text">
+          <h3 data-i18n="profile_edit.anonymize">Anonymize</h3>
+          <p data-i18n="profile_edit.anonymize_info">Hide your identity, keep stats.</p>
+          <button id="anonymize-btn" class="btn btn-warning" data-i18n="profile_edit.anonymize_data">Anonymize</button>
+        </div>
+      </div>
+
+      <div class="gdpr-card-item danger-zone">
+        <div class="gdpr-icon">🗑️</div>
+        <div class="gdpr-text">
+          <h3 data-i18n="profile_edit.delete_account">Delete Account</h3>
+          <p data-i18n="profile_edit.delete_info">Delete everything permanently.</p>
+          <button id="delete-account-btn" class="btn btn-danger" data-i18n="profile_edit.delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- モーダルは全画面中央表示 -->
+  <div class="modal" id="confirmation-modal">
+    <div class="modal-content large">
+      <span class="close-modal">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-message"></p>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="btn btn-secondary" data-i18n="profile_edit.cancel">Cancel</button>
+        <button id="modal-confirm" class="btn btn-danger" data-i18n="profile_edit.confirm">Confirm</button>
+      </div>
+    </div>
+  </div>
+</main>

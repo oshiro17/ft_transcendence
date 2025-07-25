@@ -1,0 +1,33 @@
+body, html {
+  background-color: #000000;
+}
+
+/* star-field.css */
+
+.star {
+  position: absolute;
+  top: -32px;               /* 画像の高さぶん画面外から出現 */
+  width: 32px;
+  height: 32px;
+  background-image: url('/images/hoshi.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall linear var(--duration) forwards,
+             twinkle 1.5s ease-in-out infinite; /* ちらつき追加はお好み */
+  will-change: transform, opacity;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* 落下 */
+@keyframes fall {
+  to {
+    transform: translateY(calc(100vh + 32px));
+    opacity: 0;
+  }
+}
+
+/* キラッと光る（オプション） */
+@keyframes twinkle {
+  0%, 100% { opacity: .9; }
+  50%      { opacity: .4; }
+}

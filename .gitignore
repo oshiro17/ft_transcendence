@@ -1,0 +1,22 @@
+# translationフォルダ内のNFSロックファイル
+frontend/public/translation/.nfs*
+
+# 静的配布用ディレクトリ
+staticfiles/
+
+# 依存モジュール一式（Node.js）
+node_modules/
+
+# テスト関連ファイル全般
+test.*
+
+# コアのビルド成果物
+core.1.9
+
+# 認証情報や環境変数ファイル
+credentials.json
+.env
+.DS_Store
+# SQLiteデータベースファイル（Unix/Windowsパス両対応）
+backend/database/db.sqlite
+backend\database\db.sqlite

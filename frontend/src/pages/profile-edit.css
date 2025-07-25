@@ -1,0 +1,424 @@
+/* =========================
+   新しいレイアウト用スタイル
+   ========================= */
+   .profile-edit-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    min-height: 100vh;
+    box-sizing: border-box;
+  
+    /* 👇 これを追加して、ナビゲーションの下にスペースを作る */
+    margin-top: 80px;  /* ヘッダーの高さに合わせて調整 */
+  }
+
+.profile-column {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 30px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.left-panel .panel-header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.left-panel .profile-subtitle {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.personal-info-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.field-block label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.field-block .input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #333;
+  color: #fff;
+}
+
+.actions-bar {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.actions-bar .btn-save {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.actions-bar .btn-save:hover {
+  background: #0056b3;
+}
+
+.right-panel .panel-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.gdpr-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.gdpr-card-item {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.gdpr-card-item:hover {
+  transform: translateY(-5px);
+}
+
+.gdpr-icon {
+  font-size: 2rem;
+}
+
+.gdpr-text h3 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+
+.gdpr-text p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.gdpr-card-item button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gdpr-card-item button.btn-secondary {
+  background-color: #555;
+  color: #fff;
+}
+
+.gdpr-card-item button.btn-warning {
+  background-color: #f0ad4e;
+  color: #000;
+}
+
+.gdpr-card-item button.btn-danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content.large {
+  background: #222;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.modal-content.large h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.modal-content.large p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+}
+
+.modal-actions .btn-secondary {
+  background: #555;
+  color: #fff;
+}
+
+.modal-actions .btn-danger {
+  background: #d9534f;
+  color: #fff;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+@media (max-width: 900px) {
+  .profile-edit-wrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+ body {
+    background: #000000;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .profile-edit-wrapper {
+    background: rgba(34,34,34,0.9);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+  }
+
+  .profile-column {
+    background: #222222;
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .panel-header h1,
+  .panel-header h2 {
+    color: #FFD700;
+    margin-bottom: 8px;
+  }
+
+  .panel-header p,
+  .gdpr-text p {
+    color: #FFFFFF;
+  }
+
+  .profile-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .profile-subtitle {
+    font-size: 1rem;
+  }
+
+  .personal-info-card {
+    background: #333333;
+    border-radius: 12px;
+    padding: 24px;
+    color: #FFFFFF;
+  }
+
+  .personal-info-card h2 {
+    color: #00FFFF;
+    margin-bottom: 16px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .field-block label {
+    display: block;
+    margin-bottom: 4px;
+    color: #FFFFFF;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #003366;
+    border-radius: 6px;
+    background: #222222;
+    color: #FFFFFF;
+  }
+
+  .input-field:focus {
+    border-color: #00FFFF;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0,255,255,0.6);
+  }
+
+  .actions-bar {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  .btn-save {
+    background: #FFD700;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .btn-save:hover {
+    background: #00FFFF;
+    color: #FFFFFF;
+  }
+
+  .gdpr-card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gdpr-card-item {
+    background: #333333;
+    border: 1px solid #003366;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .gdpr-icon {
+    font-size: 2rem;
+    color: #FFD700;
+  }
+
+  .gdpr-text h3 {
+    margin: 0;
+    color: #00FFFF;
+  }
+
+  .gdpr-text p {
+    margin: 4px 0 12px;
+    color: #FFFFFF;
+  }
+
+  .btn-secondary,
+  .btn-warning,
+  .btn-danger {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+  }
+
+  .btn-secondary {
+    background: #FFD700;
+    color: #000000;
+  }
+  .btn-secondary:hover {
+    background: #00FFFF;
+    color: #FFFFFF;
+  }
+
+  .btn-warning {
+    background: #222222;
+    color: #FFD700;
+    border: 1px solid #FFD700;
+  }
+  .btn-warning:hover {
+    background: #333333;
+  }
+
+  .btn-danger {
+    background: #222222;
+    color: #FF0000; /* override for destructive */
+  }
+  .btn-danger:hover {
+    background: rgba(255,215,0,0.2);
+  }
+
+  .modal {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: #222222;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    color: #FFFFFF;
+    box-shadow: 0 0 20px rgba(0,255,255,0.6);
+  }
+
+  .close-modal {
+    color: #FFD700;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .modal-actions button {
+    margin: 8px;
+  }
+
+  .modal-actions .btn-secondary {
+    background: #003366;
+    color: #FFFFFF;
+  }
+
+  .modal-actions .btn-danger {
+    background: #FFD700;
+    color: #000000;
+  }

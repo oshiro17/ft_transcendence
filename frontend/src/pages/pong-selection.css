@@ -1,0 +1,199 @@
+/* 全体設定 */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* メイン背景 */
+    color: #FFFFFF; /* テキスト */
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* セレクションコンテナ */
+.game-selection-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ヘッダー */
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+/* タイトル */
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #FFD700; /* アクセント */
+}
+
+/* ハイライト */
+.highlight {
+    color: #FFD700; /* アクセント */
+    position: relative;
+}
+.highlight::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: -8px;
+    left: 0;
+    background-color: #FFD700; /* アクセント */
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: expandLine 1.2s 0.5s forwards;
+}
+
+/* サブタイトル */
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    color: #FFFFFF; /* テキスト */
+    margin-top: 1.2rem;
+}
+
+/* カード共通 */
+.card-content {
+    padding: 2rem;
+}
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background-color: rgba(34,34,34,0.5); /* サブ背景 半透明 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* 特徴リスト */
+.features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+.features li {
+    padding: 0.5rem 0 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #FFFFFF; /* テキスト */
+}
+.features li::before {
+    content: '•';
+    color: #FFD700; /* アクセント */
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* コントロール説明 */
+.controls {
+    background-color: rgba(34,34,34,0.6); /* サブ背景 半透明 */
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+.controls p {
+    margin: 0.3rem 0;
+    text-align: left;
+    color: #FFFFFF; /* テキスト */
+}
+
+/* 再生ボタン */
+.play-button {
+    display: block;
+    background-color: #007BFF; /* ボタン青 */
+    color: #FFFFFF; /* テキスト */
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+.play-button:hover {
+    background-color: #0056b3; /* ボタン青のホバー */
+}
+
+/* カードタグ */
+.card-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #FFD700; /* アクセント */
+    color: #FFFFFF;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* ナビゲーション */
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    animation: fadeIn 1s ease-out 1s forwards;
+    opacity: 0;
+}
+
+/* 戻るボタン */
+.back-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.back-button:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-color: #FFD700; /* アクセント */
+}
+
+/* アニメーション定義 */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes expandLine {
+    to { transform: scaleX(1); }
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px) {
+    .game-cards { gap: 1.5rem; }
+    .game-card { width: 280px; }
+    .title { font-size: 3rem; }
+}
+@media (max-width: 768px) {
+    .header { margin-bottom: 2rem; }
+    .title { font-size: 2.5rem; }
+    .subtitle { font-size: 1rem; }
+    .game-card { width: 100%; max-width: 350px; }
+}
+@media (max-width: 480px) {
+    .game-selection-container { padding: 1rem; }
+    .title { font-size: 2rem; }
+}

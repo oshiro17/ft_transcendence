@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Tournament</title>
+   
+</head>
+<body>
+    <div id="pong-game" class="main-menu">
+        <canvas id="pongCanvas" width="800" height="450"></canvas>
+        <div id="scoreboard">
+            <div id="match-info">
+              <span id="match-names"><span id="match-player1-name">Player 1</span> vs <span id="match-player2-name">Player 2</span></span>
+              <span id="match-score"><span id="match-player1-score">0</span> - <span id="match-player2-score">0</span></span>
+            </div>
+        </div>
+        
+        <div id="tournament-menu">
+            <div class="game-title-container">
+                <h1 class="game-title" data-i18n="game.tournament_mode.title">TOURNAMENT MODE</h1>
+                <p class="game-subtitle" data-i18n="game.tournament_mode.subtitle">4-Player Championship Battle</p>
+            </div>
+            
+            <div id="registration-form">
+                <h2 data-i18n="game.tournament_mode.enter_names">Enter Player Names</h2>
+                <div class="player-inputs">
+                    <div class="player-input">
+                        <label for="player1-name" data-i18n="game.tournament_mode.player1">Player 1:</label>
+                        <input type="text" id="player1-name" maxlength="15" placeholder="Enter name">
+                    </div>
+                    <div class="player-input">
+                        <label for="player2-name" data-i18n="game.tournament_mode.player2">Player 2:</label>
+                        <input type="text" id="player2-name" maxlength="15" placeholder="Enter name">
+                    </div>
+                    <div class="player-input">
+                        <label for="player3-name" data-i18n="game.tournament_mode.player3">Player 3:</label>
+                        <input type="text" id="player3-name" maxlength="15" placeholder="Enter name">
+                    </div>
+                    <div class="player-input">
+                        <label for="player4-name" data-i18n="game.tournament_mode.player4">Player 4:</label>
+                        <input type="text" id="player4-name" maxlength="15" placeholder="Enter name">
+                    </div>
+                </div>
+                <div class="tournament-buttons">
+                    <button id="start-tournament-button" class="pong-button" data-i18n="game.tournament_mode.start">Start Tournament</button>
+                    <button id="back-to-modes-button" class="pong-button back-button" data-i18n="game.back">Back</button>
+                </div>
+            </div>
+            <div id="tournament-bracket" class="hidden">
+                <h2 data-i18n="game.tournament_mode.bracket">Tournament Bracket</h2>
+                <div class="bracket-container">
+                  <div class="left-rounds">
+                    <div class="round">
+                        <div class="round-title" data-i18n="game.tournament_mode.semifinals">Semi-Finals</div>
+                        <div class="match" id="match1">
+                            <div class="match-player" id="match1-player1">Player 1</div>
+                            <div class="vs" data-i18n="game.tournament_mode.vs">VS</div>
+                            <div class="match-player" id="match1-player2">Player 2</div>
+                        </div>
+                        <div class="match" id="match2">
+                            <div class="match-player" id="match2-player1">Player 3</div>
+                            <div class="vs" data-i18n="game.tournament_mode.vs">VS</div>
+                            <div class="match-player" id="match2-player2">Player 4</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="final-round">
+                    <div class="round">
+                        <div class="round-title" data-i18n="game.tournament_mode.final">Final</div>
+                        <div class="match" id="match3">
+                            <div class="match-player" id="match3-player1" data-i18n="game.tournament_mode.waiting">Waiting...</div>
+                            <div class="vs" data-i18n="game.tournament_mode.vs">VS</div>
+                            <div class="match-player" id="match3-player2" data-i18n="game.tournament_mode.waiting">Waiting...</div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <!--
+                <div class="connector-container">
+                    <div class="connector-line top"></div>
+                    <div class="connector-line vertical-top"></div>
+                    <div class="connector-line middle"></div>
+                    <div class="connector-line vertical-bottom"></div>
+                    <div class="connector-line bottom"></div>
+                </div>
+                -->
+                <button id="play-next-match-button" class="pong-button" data-i18n="game.tournament_mode.play_next">Play Next Match</button>
+            </div>
+            
+            <div id="winner-announcement" class="hidden">
+                <h2 data-i18n="game.tournament_mode.champion">Tournament Champion</h2>
+                <div class="winner-name" id="champion-name">Player Name</div>
+                <div class="trophy-icon">🏆</div>
+                <button id="new-tournament-button" class="pong-button" data-i18n="game.tournament_mode.new">New Tournament</button>
+                <button id="back-to-modes-button-winner" class="pong-button back-button" data-i18n="game.back">Back</button>
+            </div>
+        </div><!-- #tournament-menu -->
+        
+        <div id="countdown-container" class="hidden">
+            <div id="countdown">3</div>
+        </div>
+    </div>
+</body>
+</html>
