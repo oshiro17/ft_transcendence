@@ -1,0 +1,44 @@
+# ft_transcendence
+
+
+.env↓
+
+JWT_SECRET=
+# Put your secret key for JWT here! Generate a random string and paste it in♪
+
+GOOGLE_CLIENT_ID=
+# Get your OAuth 2.0 Client ID from Google Cloud Console♪  
+# 1. Go to https://console.cloud.google.com/, create or select a project.  
+# 2. Navigate to "APIs & Services" → "Credentials" → "Create Credentials" → "OAuth client ID".  
+# 3. Choose "Web application" as the app type, and add `https://localhost:8443/api/auth/google/callback` to the Authorized redirect URIs!  
+# 4. Once created, paste the "Client ID" here☆
+
+GOOGLE_CLIENT_SECRET=
+# Paste the "Client Secret" you got the same way here♪  
+# You can find it on the "Credentials" page in Google Cloud Console!
+
+GOOGLE_REDIRECT_URI=https://localhost:8443/api/auth/google/callback
+# This is the redirect URI used for Google OAuth authentication!  
+# Make sure to register it in the "Authorized redirect URIs" in Google Cloud Console♪
+
+MAIL_HOST=smtp.gmail.com
+# The SMTP server name used for sending emails. This default works fine!
+
+MAIL_PORT=587
+# The SMTP port number. Use 587 for Gmail♪
+
+MAIL_USER=
+# Your Gmail address used for sending emails
+
+MAIL_PASS=
+# Put your email sending password here!  
+# It can't be your regular Gmail password. You need to use an "App Password" for a Gmail account with 2-Step Verification enabled.  
+# 1. Prepare the Gmail account you'll use for sending and enable "2-Step Verification" in your Google Account settings.  
+#    → Go to https://myaccount.google.com/security and turn on "2-Step Verification".  
+# 2. Once 2-Step Verification is on, you'll see an option to generate "App Passwords" on the same page.  
+#    If you can't find it, search for "Gmail App Password generation" for quick help♪  
+# 3. Select "Mail" as the app, and choose "Custom name" (any name you like) for the device, then create it!  
+# 4. Paste the 16-character app password generated here.
+
+MAIL_FROM=
+# The sender's email address! Usually the same as MAIL_USER is fine.
