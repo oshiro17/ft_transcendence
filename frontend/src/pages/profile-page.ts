@@ -6,9 +6,15 @@ import { languageService } from "../lib/languageContext";
 function updateButtonTranslations(): void {
     /* ── ① ログアウトボタン ───────────────────────── */
     // <button class="btn btn-log-out">ログアウト</button>
+    // const logoutButton = document.querySelector('.btn-log-out') as HTMLElement | null;
+    // if (logoutButton) {
+    //   logoutButton.textContent = languageService.translate('profile.logout', 'Log out');
+    // }
+
+    // --- ログアウトボタンにクリックイベントを追加 ---
     const logoutButton = document.querySelector('.btn-log-out') as HTMLElement | null;
     if (logoutButton) {
-      logoutButton.textContent = languageService.translate('profile.logout', 'Log out');
+        logoutButton.addEventListener('click', handleLogout);
     }
   
     /* ── ② プロフィール編集リンク ─────────────────── */
