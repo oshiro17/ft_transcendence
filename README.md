@@ -1,3 +1,9 @@
+虎戦
+his project was inspired by and partially based on the repository:
+https://github.dev/yvann-ba/ft_transcendence
+
+
+
 <file name=0 path=/Users/hamster/Desktop/testtesttesttest/README.md># ft_transcendence
 
 To create your `.env` file, please check [this file](renameして.envにしてね) and rename it to `.env`.
