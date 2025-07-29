@@ -123,31 +123,45 @@ export const checkUserLogin = async (username: string): Promise<any> => {
 // ・createUserOAuth(googleId, username, firstName, lastName, email)
 // ・Google OAuth ユーザー向けに、google_id と固定パスワード 'google_oauth' を挿入
 // ・挿入後の lastID などを返す
-export const createUserOAuth = (googleId: string, username: string, firstName: string, lastName: string , email: string) => {
-	return new Promise((resolve, reject) => {
-		const sql = `INSERT INTO users (google_id, username, password, email, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?, ?)`;
-		db.run(sql, [googleId, username, 'google_oauth', email, firstName, lastName], function (err) {
-			if (err) return reject(err);
-			resolve({ id: this.lastID, username, email,});
-		});
-	});
+export const createUserOAuth = (
+  googleId: string,
+  username: string,
+  firstName: string,
+  lastName: string,
+  email: string
+) => {
+  return new Promise((resolve, reject) => {
+    // カラム数に合わせて6個のVALUESに修正
+    const sql = `
+      INSERT INTO users (google_id, username, password, email, first_name, last_name)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `;
+    db.run(sql, [googleId, username, 'google_oauth', email, firstName, lastName], function (err) {
+      if (err) return reject(err);
+      resolve({ id: this.lastID, username, email });
+    });
+  });
 };
 
-// ・checkUserByGoogleId(email)
+// ・checkUserByGoogleId(googleId)
 // ・google_id で検索して OAuth ユーザーをチェック
 // ・見つかればそのレコードを返し、なければ null
-export const checkUserByGoogleId = async (email: string): Promise<any> => {
-	return new Promise((resolve, reject) => {
-		const sql = `SELECT id, username, email, password, FROM users WHERE google_id = ?`;
-
-		db.get(sql, [email], (err, row) => {
-			if (err) {
-				console.error("Error retrieving user by email:", err.message);
-				return reject(err);
-			}
-			resolve(row || null);
-		});
-	});
+export const checkUserByGoogleId = async (googleId: string): Promise<any> => {
+  return new Promise((resolve, reject) => {
+    // 余計なカンマ削除 & 引数は googleId
+    const sql = `
+      SELECT id, username, email, password
+      FROM users
+      WHERE google_id = ?
+    `;
+    db.get(sql, [googleId], (err, row) => {
+      if (err) {
+        console.error("Error retrieving user by google_id:", err.message);
+        return reject(err);
+      }
+      resolve(row || null);
+    });
+  });
 };
 
 
